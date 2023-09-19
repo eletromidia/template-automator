@@ -12,11 +12,12 @@ import VideoLoader from './components/VideoLoader'
 import BackgroundToggle from './components/BackgroundToggle'
 import Width from './icons/Width'
 import Height from './icons/Height'
-import styles from './Editor.module.css'
 import type { TemplatePermissions } from './types/TemplatePermissions'
 import TabGroup from './components/TabGroup'
 import TemplateName from './components/TemplateName'
 import { useTemplate } from './TemplateContext'
+import ImageSize from './components/ImageSize'
+import styles from './Editor.module.css'
 
 const MODKEY = 'Shift'
 const VIDEO_FORMATS = ['video/mp4', 'video/webm', 'video/ogv', ]
@@ -308,6 +309,7 @@ const Editor: Component<EditorProps> = (props: EditorProps) => {
       y < bounds.bottom
     )
   }
+  const showTip = () => !thumbnail() && videoStore.videos.length && videoState()
   const handleMouseMove = (ev: MouseEvent) => {
     const snap = modKey() ? gridSize() : 1
     setMouseX(ev.clientX)
@@ -481,6 +483,11 @@ const Editor: Component<EditorProps> = (props: EditorProps) => {
           <Show when={!isImg && videoState()}>
             <VideoLoader videoStore={videoStore} setVideoStore={setVideoStore} loadWithVideo={loadWithVideo} disabled={!permissions.editVideoSrc} />
           </Show>
+          <div class={styles.tip} style={{ display: showTip() ? 'block' : 'none' }}>
+            <strong>Nenhuma captura disponível.</strong>
+            <div>Você pode usar um quadro do video como referência na edição.</div>
+            <div>Na aba <strong>VER</strong>, clique no botão de <strong>Capatura</strong> e retorne para esta aba</div>
+          </div>
           <div class={styles.formRow}>
             <input class={styles.bgColor} type="color" onInput={(ev) => setBgColor(ev.target.value)} value={templateConfig.bgColor}/>
             <div style={{display: 'flex', height:'22px'}}>
@@ -522,7 +529,11 @@ const Editor: Component<EditorProps> = (props: EditorProps) => {
         <div ref={container} class={styles.stage} style={mainStageStyle()}>
           <canvas ref={bgCanvas} style={bgCanvasStyle()} width={templateConfig.width} height={templateConfig.height}></canvas>
           <For each = {templateConfig.elements}>{ (el) =>
-            <div id={el.id} style={getStyle(el)} onMouseDown={(ev) => handleMouseDown(ev, el.id)}>{el.placeholder || ''}</div>
+            <div id={el.id} style={getStyle(el)} onMouseDown={(ev) => handleMouseDown(ev, el.id)}>{el.placeholder || ''}
+              <Show when={el.name === 'imagem'}>
+                <ImageSize width={() => el.width} height={() => el.height} />
+              </Show>
+            </div>
           }</For>
           <Show when={selection() !== ''}>
             <div style={resizerStyle('top')} onMouseDown={(ev) => clickResizer(ev, 'top')}></div>

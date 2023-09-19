@@ -1,0 +1,9 @@
+.imageSize {
+  margin-top: 8px;
+  font-size: 32px;
+  color: var(--text-color);
+  font-weight: normal;
+  width: max-content;
+  width: fit-content;
+  margin: auto;
+}

@@ -34,3 +34,7 @@ input {
 input[type=range] {
   accent-color: var(--primary-darken);
 }
+
+strong {
+  font-weight: 800;
+}

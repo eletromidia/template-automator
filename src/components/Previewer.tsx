@@ -9,10 +9,11 @@ import Button from './Button'
 import MediaReplay from '../icons/MediaReplay'
 import type { VideoStore } from '../types/Video'
 import TabGroup from './TabGroup'
-import styles from './Previewer.module.css'
 import ThumbSetter from './ThumbSetter'
 import TemplateName from './TemplateName'
+import ImageSize from './ImageSize'
 import { useTemplate } from '../TemplateContext'
+import styles from './Previewer.module.css'
 
 type MaybeRef = Ref<HTMLDivElement> | undefined
 const MIN_FONT_SIZE = 1
@@ -265,7 +266,11 @@ const Previewer:Component<PreviewerProps> = (props: PreviewerProps) => {
             <video ref={videoRef} class={styles.video} src={choice()} muted={true} controls={false}></video>
           }</Show>
           <For each={templateConfig.elements}>{el =>
-            <div ref={refMap[el.name]} style={elementStyle(el)}>{textValue(el.name)}</div>
+            <div ref={refMap[el.name]} style={elementStyle(el)}>{textValue(el.name)}
+              <Show when={el.name === 'imagem'}>
+                <ImageSize width={() => el.width} height={() => el.height} />
+              </Show>
+            </div>
           }</For>
         </div>
       </div>
