@@ -42,6 +42,7 @@ const Editor: Component<EditorProps> = (props: EditorProps) => {
 
   const [templateConfig,
     {
+      getElementById,
       setWidth,
       setHeight,
       setBgColor,
@@ -71,6 +72,7 @@ const Editor: Component<EditorProps> = (props: EditorProps) => {
 
   let container: HTMLDivElement | undefined
   let bgCanvas: HTMLCanvasElement | undefined
+  let fgCanvas: HTMLCanvasElement | undefined
   const { name, videoStore, setVideoStore, permissions, loadWithBackground, tabIndex, setTab, zoomLevel, thumbnail, bgImg, setBgImg, bgType } = props
   const [modKey, setModKey] = createSignal(false)
   const [gridSize, setGridSize] = createSignal(20)
@@ -177,19 +179,19 @@ const Editor: Component<EditorProps> = (props: EditorProps) => {
       }
       case 'left': {
         x = el.x
-        y = el.y + (el.height/2) -3
+        y = el.y + (el.height/2)
         cursor = 'col-resize'
         break
       }
       case 'bottom': {
         x = el.x + (el.width /2)
-        y = el.y + el.height -3
+        y = el.y + el.height
         cursor = 'row-resize'
         break
       }
       case 'right': {
-        x = el.x + el.width -3
-        y = el.y + (el.height/2) -3
+        x = el.x + el.width
+        y = el.y + (el.height/2)
         cursor = 'col-resize'
         break
       }
@@ -197,7 +199,8 @@ const Editor: Component<EditorProps> = (props: EditorProps) => {
     return `
       position: absolute;
       cursor: ${cursor};
-      transform: translate(${x-4}px, ${y-4}px);
+      transform: translate(${x-6}px, ${y-6}px);
+      transform-origin: center;
       width: 12px;
       height: 12px;
       border-radius: 50%;
@@ -417,6 +420,39 @@ const Editor: Component<EditorProps> = (props: EditorProps) => {
     const visibility = modKey() ? 'visible' : 'hidden'
     return { position: 'absolute', 'transform-origin': '0 0', visibility }
   }
+  const fgCanvasStyle = () => {
+    return { position: 'absolute', 'transform-origin': '0 0', 'pointer-events': 'none', background: 'transparent', 'z-index': 9000 }
+  }
+  const clearFgCanvas = () => {
+    if (!fgCanvas) return
+    const ctx = fgCanvas.getContext('2d')
+    if (!ctx) return
+    ctx.beginPath()
+    ctx.clearRect(0, 0, fgCanvas.width, fgCanvas.height)
+    ctx.closePath()
+  }
+  const drawVertical = () => {
+    if (!fgCanvas) return
+    const ctx = fgCanvas.getContext('2d')
+    if (!ctx) return
+    ctx.strokeStyle = reverseColor()
+    ctx.beginPath()
+    ctx.moveTo(fgCanvas.width/2, 0)
+    ctx.lineTo(fgCanvas.width/2, fgCanvas.height)
+    ctx.stroke()
+    ctx.closePath()
+  }
+  const drawHorizontal = () => {
+    if (!fgCanvas) return
+    const ctx = fgCanvas.getContext('2d')
+    if (!ctx) return
+    ctx.strokeStyle = reverseColor()
+    ctx.beginPath()
+    ctx.moveTo(0, fgCanvas.height/2)
+    ctx.lineTo(fgCanvas.width, fgCanvas.height/2)
+    ctx.stroke()
+    ctx.closePath()
+  }
   const drawGrid = () => {
     if (!bgCanvas) return
     const ctx = bgCanvas.getContext('2d')
@@ -471,6 +507,17 @@ const Editor: Component<EditorProps> = (props: EditorProps) => {
     // mouse wheel lags otherwise
     if (modKey()) window.addEventListener('wheel', handleWheel)
     else window.removeEventListener('wheel', handleWheel)
+  })
+
+  createEffect(() => {
+    clearFgCanvas()
+    if (!dragStore.target) return
+    const target = getElementById(dragStore.target)
+    if (!target) return
+    const middleX = target.x + (target.width / 2)
+    const middleY = target.y + (target.height / 2)
+    if (middleX === templateConfig.width / 2) drawVertical()
+    if (middleY === templateConfig.height/ 2) drawHorizontal()
   })
 
   return (
@@ -541,10 +588,11 @@ const Editor: Component<EditorProps> = (props: EditorProps) => {
             <div style={resizerStyle('bottom')} onMouseDown={(ev) => clickResizer(ev, 'bottom')}></div>
             <div style={resizerStyle('right')} onMouseDown={(ev) => clickResizer(ev, 'right')}></div>
           </Show>
-            <div style={resizeBoxStyle()}></div>
-          </div>
+          <div style={resizeBoxStyle()}></div>
+          <canvas ref={fgCanvas} style={fgCanvasStyle()} width={templateConfig.width} height={templateConfig.height}></canvas>
         </div>
       </div>
+    </div>
   )
 }
 

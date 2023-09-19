@@ -5,6 +5,7 @@ import { defaultElementOptionals } from './utils/template'
 
 type TemplateSetters = {
   readonly getElementByName: (name: ElementName) => TemplateElement
+  readonly getElementById: (id: string) => TemplateElement,
   readonly setWidth: (value: number) => void,
   readonly setHeight: (value: number) => void,
   readonly setBgColor: (color: string) => void,
@@ -89,6 +90,7 @@ export const TemplateProvider = (props: { children?: JSXElement, template: Templ
 
   const value = [templateConfig, {
     getElementByName,
+    getElementById,
     setWidth(value: number) {
       setTemplateConfig('width', value)
     },
