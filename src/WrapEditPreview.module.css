@@ -1,0 +1,21 @@
+.outer {
+  height: max-content;
+  height: fit-content;
+  display: flex;
+}
+
+.container {
+  margin-top: 4px;
+  margin-left: 4px;
+  z-index: 0;
+  width: fit-content;
+  width: max-content;
+}
+
+.title {
+  color: var(--text-color);
+  padding: 4px;
+  font-weight: 700;
+  font-size: 18px;
+  text-align: center;
+}

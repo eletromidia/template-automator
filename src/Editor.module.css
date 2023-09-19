@@ -1,0 +1,112 @@
+.container {
+  display: flex;
+  gap: 4px;
+  min-width: max-content;
+  font-size: 14px;
+  color: var(--text-color);
+}
+
+.stageTop {
+  height: 27px;
+  text-align: center;
+}
+
+.stage {
+  border: 1px solid var(--bg-color-dark-3);
+  background-size: cover;
+  background-position: center;
+  transform-origin: 0 0;
+}
+
+.inputSmall {
+  height: 22px;
+  display: block;
+  width: 60px;
+  margin-left: 8px;
+}
+
+.inputSize {
+  height: 22px;
+  display: block;
+  width: 58px;
+}
+
+.bgColor {
+  max-width: 26px;
+}
+
+.inputSmaller {
+  height: 22px;
+  display: block;
+  width: 45px;
+  margin-left: 0.5em;
+}
+
+.sidebar {
+  width: 220px;
+  display: flex;
+  flex-direction: column;
+  font-weight: 300;
+}
+
+.templateGlobals {
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--bg-color-dark-2);
+}
+
+.formRow {
+  display: flex;
+  line-height: 1.5;
+  margin: 4px 0;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.gridConfig {
+  padding: 8px 12px;
+  align-items: center;
+  display: flex;
+}
+
+.gridSize {
+  display: flex;
+  align-items: center;
+}
+
+.toolbox {
+  padding: 4px 45px;
+}
+
+.elType {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 12px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.elementOptions {
+  padding-bottom: 8px;
+  margin-bottom: 8px;
+  border-bottom: 1px solid var(--bg-color-dark-2);
+}
+
+.animationOptions {
+  padding: 4px 8px;
+  margin-bottom: 8px;
+  border-bottom: 1px dotted var(--bg-color-dark-2);
+}
+
+.animationSlider {
+  width: 100%;
+}
+
+.animationTime {
+  font-weight: bold;
+}
+
+.tip {
+  border: 1px dotted gray;
+  margin-top: 4px;
+  padding: 4px;
+  font-size: 11px;
+}

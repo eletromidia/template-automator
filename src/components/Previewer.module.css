@@ -1,0 +1,27 @@
+.wrapper {
+  display: flex;
+  gap: 4px;
+  color: var(--text-color);
+}
+
+.elapsed {
+  font-size: 11px;
+  font-family: monospace;
+}
+
+.aside {
+  width: 220px;
+}
+
+.video {
+  position: absolute;
+  width: inherit;
+  height: inherit;
+  object-fit: cover;
+}
+
+.stage {
+  background-size: cover;
+  background-position: center;
+  transform-origin: 0 0;
+}

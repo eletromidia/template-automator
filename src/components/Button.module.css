@@ -1,0 +1,16 @@
+.button {
+  line-height: 1;
+  height: 100%;
+  padding: 3px 6px;
+  border-radius: 4px;
+  font-size: inherit;
+}
+
+.disabled {
+  color: var(--bg-color-dark-2);
+  cursor: not-allowed;
+}
+
+.button:not(.disabled) {
+  cursor: pointer;
+}

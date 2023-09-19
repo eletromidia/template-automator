@@ -1,0 +1,10 @@
+.close {
+  cursor: pointer;
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  padding: 8px;
+  height: 40px;
+  background-color: var(--danger-color);
+  border: 2px solid var(--text-color);
+}

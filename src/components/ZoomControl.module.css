@@ -1,0 +1,25 @@
+.container {
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+  margin: 8px;
+  border: 1px solid var(--bg-color-dark-2);
+  padding: 6px;
+  border-radius: 6px;
+  color: var(--text-color);
+}
+
+.input {
+  flex-grow: 8;
+  width: 48px;
+  height: auto;
+  -webkit-appearance: slider-vertical;
+  writing-mode: bt-lr;
+  border: 2px solid red;
+  font-weight: 300;
+}
+
+.scale {
+  text-align: center;
+  font-size: 14px;
+}

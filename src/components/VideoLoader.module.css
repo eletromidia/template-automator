@@ -1,0 +1,22 @@
+.row {
+  align-items: center;
+  height: 26px;
+  font-size: 14px;
+  width: fit-content;
+}
+
+.select {
+  width: 100%;
+  font-size: 14px;
+}
+
+.input {
+  width: 100%;
+  font-size: 12px;
+}
+
+.container {
+  padding-bottom: 8px;
+  margin-bottom: 8px;
+  border-bottom: 1px dotted var(--bg-color-dark-2);
+}

@@ -1,0 +1,33 @@
+.elType {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 14px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.elementOptions {
+  padding-bottom: 8px;
+  margin-bottom: 8px;
+  border-bottom: 1px solid var(--bg-color-dark-2);
+}
+
+.animationOptions {
+  padding: 4px 8px;
+  border-bottom: 1px dotted var(--bg-color-dark-2);
+}
+
+.animationSlider {
+  width: 100%;
+}
+
+.animationTime {
+  font-weight: bold;
+}
+
+.row {
+  display: flex;
+  line-height: 1.6;
+  margin-top: 4px;
+  align-items: center;
+  justify-content: space-between;
+}

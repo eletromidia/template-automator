@@ -1,0 +1,8 @@
+.container {
+  margin-bottom: 8px;
+  padding: 4px;
+  display: flex;
+  justify-content: space-evenly;
+  font-size: 11px;
+  color: gray;
+}
