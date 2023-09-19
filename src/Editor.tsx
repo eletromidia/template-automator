@@ -511,13 +511,13 @@ const Editor: Component<EditorProps> = (props: EditorProps) => {
 
   createEffect(() => {
     clearFgCanvas()
-    if (!dragStore.target) return
-    const target = getElementById(dragStore.target)
+    if (!dragStore.target && !selection()) return
+    const target = getElementById(dragStore.target) || selectedElement()
     if (!target) return
-    const middleX = target.x + (target.width / 2)
-    const middleY = target.y + (target.height / 2)
-    if (middleX === templateConfig.width / 2) drawVertical()
-    if (middleY === templateConfig.height/ 2) drawHorizontal()
+    const middleX = Math.round(target.x + (target.width / 2))
+    const middleY = Math.round(target.y + (target.height / 2))
+    if (middleX === Math.round(templateConfig.width / 2)) drawVertical()
+    if (middleY === Math.round(templateConfig.height/ 2)) drawHorizontal()
   })
 
   return (
