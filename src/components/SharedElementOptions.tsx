@@ -14,14 +14,14 @@ const SharedElementOptions = (props: SharedElementOptionsProps) => {
       <div class={styles.elType}>{el().name}</div>
       <div class={styles.animationOptions}>
         <div class={styles.row}>
-          <label>animation:</label>
+          <label>animação:</label>
           <select onChange={(ev) => setAnimation(ev.target.value as AnimationType)}>
             <option selected={el().animationName === 'fadeIn'} value="fadeIn">fadeIn</option>
             <option selected={el().animationName === 'slide'} value="slide">slide</option>
           </select>
         </div>
         <div class={styles.row}>
-          <div>animation start:</div>
+          <div>início:</div>
           <div>{el().animationStart}s</div>
         </div>
         <div>
