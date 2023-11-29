@@ -1,5 +1,50 @@
 @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;700&display=swap');
 
+@font-face {
+  font-family: montserratLight;
+  src: url('/fonts/montserrat-light-webfont.ttf') format('ttf');
+}
+
+@font-face {
+  font-family: montserratRegular;
+  src: url('/fonts/montserrat-regular-webfont.ttf') format('ttf');
+}
+
+@font-face {
+  font-family: montserratBold;
+  src: url('/fonts/montserrat-bold-webfont.ttf') format('ttf');
+}
+
+@font-face {
+  font-family: arial;
+  src: url('/fonts/Arial-Regular.ttf') format('ttf');
+}
+
+@font-face {
+  font-family: arialBlack;
+  src: url('/fonts/Arial-Black.ttf') format('ttf');
+}
+
+@font-face {
+  font-family: gotham;
+  src: url('/fonts/Gotham-Book.ttf') format('ttf');
+}
+
+@font-face {
+  font-family: gothamBlack;
+  src: url('/fonts/Gotham-Black.otf') format('otf');
+}
+
+@font-face {
+  font-family: verdana;
+  src: url('/fonts/Verdana-Regular.ttf') format('ttf');
+}
+
+@font-face {
+  font-family: verdanaBold;
+  src: url('/fonts/Verdana-Bold.ttf') format('ttf');
+}
+
 :root {
   --bg-color: #F2F2F3;
   --bg-color-dark-1: #E5E5E5;

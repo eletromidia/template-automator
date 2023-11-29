@@ -29,8 +29,8 @@ const TextOptions: Component<TextOptionsProps> = (props: TextOptionsProps) => {
           <option selected={el().fontFamily === 'montserratBold'} value="montserratBold">Montserrat Bold</option>
           <option selected={el().fontFamily === 'arial'} value="arial">Arial</option>
           <option selected={el().fontFamily === 'arialBlack'} value="arialBlack">Arial Black</option>
-          <option selected={el().fontFamily === 'gotha,'} value="gothan">Gotham</option>
-          <option selected={el().fontFamily === 'gothamBold'} value="gothamBold">Gothan Bold</option>
+          <option selected={el().fontFamily === 'gotham,'} value="gotham">Gotham</option>
+          <option selected={el().fontFamily === 'gothamBlack'} value="gothamBlack">Gothan Black</option>
           <option selected={el().fontFamily === 'Verdana'} value="Verdana">Verdana</option>
           <option selected={el().fontFamily === 'verdanaBold'} value="verdanaBold">Verdana Bold</option>
         </select>

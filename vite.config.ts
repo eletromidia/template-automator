@@ -17,4 +17,5 @@ export default defineConfig({
   build: {
     target: 'esnext',
   },
+  assetsInclude: ['**/*.ttf', '**/*.otf', '**/*.woff', '**/*.woff2', '**/*.eot', ],
 });
