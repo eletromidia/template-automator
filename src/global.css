@@ -2,47 +2,47 @@
 
 @font-face {
   font-family: montserratLight;
-  src: url('/fonts/montserrat-light-webfont.ttf') format('truetype');
+  src: url('fonts/montserrat-light-webfont.ttf') format('truetype');
 }
 
 @font-face {
   font-family: montserratRegular;
-  src: url('/fonts/montserrat-regular-webfont.ttf') format('truetype');
+  src: url('fonts/montserrat-regular-webfont.ttf') format('truetype');
 }
 
 @font-face {
   font-family: montserratBold;
-  src: url('/fonts/montserrat-bold-webfont.ttf') format('truetype');
+  src: url('fonts/montserrat-bold-webfont.ttf') format('truetype');
 }
 
 @font-face {
   font-family: arial;
-  src: url('/fonts/Arial-Regular.ttf') format('truetype');
+  src: url('fonts/Arial-Regular.ttf') format('truetype');
 }
 
 @font-face {
   font-family: arialBlack;
-  src: url('/fonts/Arial-Black.ttf') format('truetype');
+  src: url('fonts/Arial-Black.ttf') format('truetype');
 }
 
 @font-face {
   font-family: gotham;
-  src: url('/fonts/Gotham-Book.ttf') format('truetype');
+  src: url('fonts/Gotham-Book.ttf') format('truetype');
 }
 
 @font-face {
   font-family: gothamBlack;
-  src: url('/fonts/Gotham-Black.otf') format('opentype');
+  src: url('fonts/Gotham-Black.otf') format('opentype');
 }
 
 @font-face {
   font-family: verdana;
-  src: url('/fonts/Verdana-Regular.ttf') format('truetype');
+  src: url('fonts/Verdana-Regular.ttf') format('truetype');
 }
 
 @font-face {
   font-family: verdanaBold;
-  src: url('/fonts/Verdana-Bold.ttf') format('truetype');
+  src: url('fonts/Verdana-Bold.ttf') format('truetype');
 }
 
 :root {
