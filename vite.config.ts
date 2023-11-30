@@ -4,11 +4,6 @@ import solidPlugin from 'vite-plugin-solid';
 
 export default defineConfig({
   plugins: [
-    /* 
-    Uncomment the following line to enable solid-devtools.
-    For more info see https://github.com/thetarnav/solid-devtools/tree/main/packages/extension#readme
-    */
-    // devtools(),
     solidPlugin(),
   ],
   server: {
@@ -16,6 +11,12 @@ export default defineConfig({
   },
   build: {
     target: 'esnext',
+    rollupOptions: {
+      output: {
+        entryFileNames: 'automator.js',
+        assetFileNames: 'automator.css',
+      }
+    }
   },
   assetsInclude: ['**/*.ttf', '**/*.otf', '**/*.woff', '**/*.woff2', '**/*.eot', ],
 });
